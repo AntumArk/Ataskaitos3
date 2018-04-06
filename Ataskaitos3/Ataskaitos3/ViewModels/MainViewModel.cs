@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Ataskaitos3.ViewModels
@@ -78,11 +79,11 @@ namespace Ataskaitos3.ViewModels
             return true;
         }
 
-        public void SendEmailAsync()
+        public async void SendEmailAsync()
         {
             Debug.WriteLine("Sending email");
             GenerateFile();
-            //  await PCLStorageSample();
+             await PCLStorageSample();
 
         }
 
@@ -104,7 +105,7 @@ namespace Ataskaitos3.ViewModels
             await selfiePhotoFile.WriteAllTextAsync(Data);
 
         }
-        /*  public async Task PCLStorageSample()
+          public async Task PCLStorageSample()
           {
               IFolder rootFolder = FileSystem.Current.LocalStorage;
               IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder",
@@ -112,14 +113,14 @@ namespace Ataskaitos3.ViewModels
               IFile file = await folder.CreateFileAsync("answer.txt",
                   CreationCollisionOption.ReplaceExisting);
               await file.WriteAllTextAsync("42");
-              /*ExistenceCheckResult re = await folder.CheckExistsAsync("MySubFolder");
-              if (re == ExistenceCheckResult.FolderExists)
+              ExistenceCheckResult re = await folder.CheckExistsAsync("answer.txt");
+              if (re == ExistenceCheckResult.FileExists)
               {
-                  Debug.WriteLine("Folder exists");
+                  Debug.WriteLine("Folder exists"+ re.ToString());
               }
               else
                   Debug.WriteLine("Folder missing");
-          }*/
+          }
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
