@@ -49,18 +49,18 @@ namespace Ataskaitos3.Models
         {
             get
             {
-                var result = String.Join(";", dataHeaders);
+                var result = String.Join(",", dataHeaders);
                 result += '\n';
-                result += Code + ";";
-                result += Story + ";";
-                result += RoomPlace + ";";
-                result += InstalledFrom + ";";
-                result += InstalledTo + ";";
-                result += InstallationType + ";";
-                result += FireClass + ";";
-                result += UsedMaterials + ";";
-                result += Quadrature + ";";
-                result += Price + ";";
+                result += Code + ",";
+                result += Story + ",";
+                result += RoomPlace + ",";
+                result += InstalledFrom + ",";
+                result += InstalledTo + ",";
+                result += InstallationType + ",";
+                result += FireClass + ",";
+                result += UsedMaterials + ",;";
+                result += Quadrature + ",";
+                result += Price + ",";
 
                 return result;
             }
