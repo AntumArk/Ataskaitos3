@@ -4,8 +4,44 @@
              xmlns:local="clr-namespace:Ataskaitos3"
              x:Class="Ataskaitos3.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition />
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Column="0" Grid.Row="0">
+            <StackLayout >
+                <Entry Placeholder="Kodas"      Text="{Binding reportData.Code,Mode=TwoWay}"      />
+                <Entry Placeholder="Aukštas"   Text="{Binding reportData.Story,Mode=TwoWay}"      />
+                <Entry Placeholder="Vieta"         Text="{Binding reportData.RoomPlace,Mode=TwoWay}"   />
+                <Entry Placeholder="Iš"         Text="{Binding reportData.InstalledFrom,Mode=TwoWay}"                 />
+                <Entry Placeholder="Į"      Text="{Binding reportData.InstalledTo,Mode=TwoWay}"      />
+                <Entry Placeholder="Instaliacijos tipas"    Text="{Binding reportData.InstallationType,Mode=TwoWay}"   />
+                <Entry Placeholder="Gaisro klasė"   Text="{Binding reportData.FireClass,Mode=TwoWay}"   />
+                <Entry Placeholder="Naudotos medžiagos"       Text="{Binding reportData.UsedMaterials,Mode=TwoWay}"      />
+                <Entry Placeholder="Kvadratūra"        Text="{Binding reportData.Quadrature,Mode=TwoWay}"     />
+                <Entry Placeholder="Numatoma kaina"      Text="{Binding reportData.Price,Mode=TwoWay}"      />
+
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Grid.Column="1" Grid.Row="0">
+            <Button x:Name="SendButton" 
+            Text="Išsiusti" 
+            Command="{Binding SendData}"/>
+            <Button x:Name="LoginButton"
+        Text="Prisijungti" 
+            Command="{Binding Login}"/>
+            <Label Text="{Binding reportData.Code}"/>
+            <Label Text="{Binding reportData.Story}"/>
+            <Label  Text="Blanky"/>
+        </StackLayout>
+
+
+    </Grid>
 
 </ContentPage>
